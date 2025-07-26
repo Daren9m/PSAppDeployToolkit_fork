@@ -5,19 +5,19 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    target-branch: "development"
+    directory: "/"
     schedule:
-      interval: "weekly"
-
-  - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/" # Location of package manifests
+        interval: "daily"
+    labels:
+        - "Actions" 
+  # Maintain dependencies for nuget
+  - package-ecosystem: "nuget"
+    target-branch: "development"
+    directory: "src"
     schedule:
-      interval: "weekly"
-
-    - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "weekly"
-
-
+        interval: "daily"
+    labels:
+        - "NuGet"
